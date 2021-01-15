@@ -7,10 +7,10 @@
         <table class="table table-striped table-bordered">
             <thead>
             <tr>
-                <th class="text-center">{{ __('tasks.title') }}</th>
-                <th class="text-center">{{ __('tasks.email') }}</th>
+                <th class="text-center">@sortablelink('name', __('tasks.title'))</th>
+                <th class="text-center">@sortablelink('email', __('tasks.email'))</th>
                 <th class="text-center">{{ __('tasks.description') }}</th>
-                <th class="text-center">{{ __('tasks.is_completed') }}</th>
+                <th class="text-center">@sortablelink('is_completed', __('tasks.is_completed'))</th>
             </tr>
             </thead>
             <tbody>

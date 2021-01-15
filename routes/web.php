@@ -12,4 +12,16 @@ Route::namespace('App\\Http\\Controllers')->group(function () {
         ->name('create_task');
     Route::post('/store-task', 'TaskController@storeTask')
         ->name('store_task');
+
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', 'LoginController@index')
+            ->name('login');
+        Route::post('/handle-login', 'LoginController@login')
+            ->name('handle_login');
+    });
+
+    Route::middleware('auth')->group(function () {
+        Route::get('/logout', 'LoginController@logout')
+            ->name('logout');
+    });
 });

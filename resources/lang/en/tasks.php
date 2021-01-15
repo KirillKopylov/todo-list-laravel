@@ -16,5 +16,9 @@ return [
     'create_username' => 'Name:',
     'create_email' => 'Email:',
     'create_description' => 'Description:',
-    'submit' => 'Submit'
+    'submit' => 'Submit',
+    'login' => 'Login',
+    'logout' => 'Logout',
+    'password' => 'Password',
+    'invalid_credentials' => 'Invalid credentials'
 ];

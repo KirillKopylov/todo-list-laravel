@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTaskRequest;
 use App\Services\TaskService;
+use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -14,10 +15,12 @@ class TaskController extends Controller
         $this->taskService = $taskService;
     }
 
-    public function getAllTasks()
+    public function getAllTasks(Request $request)
     {
         $tasks = $this->taskService->getAllTasks();
-        return view('tasks', ['tasks' => $tasks]);
+        return view('tasks', [
+            'tasks' => $tasks->appends($request->except('page'))
+        ]);
     }
 
     public function getTask(int $id)

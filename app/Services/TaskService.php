@@ -8,9 +8,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class TaskService
 {
-    public function getAllTasks(): LengthAwarePaginator
+    public function getAllTasks($column = null, $direction = null): LengthAwarePaginator
     {
-        return Task::paginate(3);
+        return Task::sortable()->paginate(3);
     }
 
     public function getTask(int $id): Task

@@ -12,12 +12,17 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{ route('all_tasks') }}">{{ __('tasks.task_list') }}</a>
     <a class="navbar-brand" href="{{ route('create_task') }}">{{ __('tasks.create_task') }}</a>
+    @if(Auth::check())
+        <a class="navbar-brand" href="{{ route('logout') }}">{{ __('tasks.logout') }}</a>
+    @else
+        <a class="navbar-brand" href="{{ route('login') }}">{{ __('tasks.login') }}</a>
+    @endif
 </nav>
-    <div class="container">
-        <div class="text-center">
-            @section('body')
-            @show
-        </div>
+<div class="container">
+    <div class="text-center">
+        @section('body')
+        @show
     </div>
+</div>
 </body>
 </html>
