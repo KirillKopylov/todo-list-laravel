@@ -18,4 +18,10 @@ class TaskController extends Controller
         $tasks = $this->taskService->getAllTasks();
         return view('tasks', ['tasks' => $tasks]);
     }
+
+    public function getTask(int $id)
+    {
+        $task = $this->taskService->getTask($id);
+        return view('task', ['task' => $task]);
+    }
 }
