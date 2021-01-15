@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateTaskRequest;
 use App\Services\TaskService;
 
 class TaskController extends Controller
@@ -23,5 +24,15 @@ class TaskController extends Controller
     {
         $task = $this->taskService->getTask($id);
         return view('task', ['task' => $task]);
+    }
+
+    public function createTask()
+    {
+        return view('new_task');
+    }
+
+    public function storeTask(CreateTaskRequest $request)
+    {
+        return $this->taskService->createTask($request->name, $request->email, $request->description);
     }
 }

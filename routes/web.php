@@ -8,5 +8,8 @@ Route::namespace('App\\Http\\Controllers')->group(function () {
     Route::get('/task/{id}', 'TaskController@getTask')
         ->where('id', '\d+')
         ->name('task_by_id');
-
+    Route::get('/create-task', 'TaskController@createTask')
+        ->name('create_task');
+    Route::post('/store-task', 'TaskController@storeTask')
+        ->name('store_task');
 });

@@ -3,7 +3,6 @@
 
 namespace App\Services;
 
-
 use App\Models\Task;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -17,5 +16,19 @@ class TaskService
     public function getTask(int $id): Task
     {
         return Task::findOrFail($id);
+    }
+
+    public function createTask($name, $email, $description)
+    {
+        try {
+            Task::create([
+                'name' => $name,
+                'email' => $email,
+                'description' => $description
+            ]);
+            return redirect(route('all_tasks'));
+        } catch (\Illuminate\Database\QueryException $exception) {
+            return back()->withErrors($exception->getMessage());
+        }
     }
 }

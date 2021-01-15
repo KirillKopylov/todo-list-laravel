@@ -9,6 +9,10 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{{ route('all_tasks') }}">{{ __('tasks.task_list') }}</a>
+    <a class="navbar-brand" href="{{ route('create_task') }}">{{ __('tasks.create_task') }}</a>
+</nav>
     <div class="container">
         <div class="text-center">
             @section('body')
