@@ -23,5 +23,11 @@ Route::namespace('App\\Http\\Controllers')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/logout', 'LoginController@logout')
             ->name('logout');
+        Route::get('/edit-task/{id}', 'TaskController@editTaskIndex')
+            ->where('id', '\d+')
+            ->name('edit_task_by_id');
+        Route::post('/handle-edit-task/{id}', 'TaskController@editTask')
+            ->where('id', '\d+')
+            ->name('handle_edit_task');
     });
 });

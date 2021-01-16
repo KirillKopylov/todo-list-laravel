@@ -20,5 +20,6 @@ return [
     'login' => 'Login',
     'logout' => 'Logout',
     'password' => 'Password',
-    'invalid_credentials' => 'Invalid credentials'
+    'invalid_credentials' => 'Invalid credentials',
+    'edit_task' => 'Edit task'
 ];

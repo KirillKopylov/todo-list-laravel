@@ -11,6 +11,9 @@
                 <th class="text-center">@sortablelink('email', __('tasks.email'))</th>
                 <th class="text-center">{{ __('tasks.description') }}</th>
                 <th class="text-center">@sortablelink('is_completed', __('tasks.is_completed'))</th>
+                @if(Auth::check())
+                    <th class="text-center">{{ __('tasks.edit_task') }}</th>
+                @endif
             </tr>
             </thead>
             <tbody>
@@ -22,6 +25,11 @@
                     <td>{{ $task->email }}</td>
                     <td>{{ Str::limit($task->description, 100, '...') }}</td>
                     <td>{{ $task->is_completed ? '+' : '-' }}</td>
+                    @if(Auth::check())
+                        <td>
+                            <a href="{{ route('edit_task_by_id', ['id' => $task->id]) }}">{{ __('tasks.edit_task') }}</a>
+                        </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

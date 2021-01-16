@@ -10,6 +10,6 @@ class Task extends Model
 {
     use HasFactory, Sortable;
 
-    protected $fillable = ['name', 'email', 'description'];
-    public $sortable = ['name', 'email', 'is_done'];
+    protected $fillable = ['name', 'email', 'description', 'is_completed', 'is_edited'];
+    public array $sortable = ['name', 'email', 'is_completed'];
 }

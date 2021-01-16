@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateTaskRequest;
+use App\Http\Requests\EditTaskRequest;
 use App\Services\TaskService;
 use Illuminate\Http\Request;
 
@@ -37,5 +38,17 @@ class TaskController extends Controller
     public function storeTask(CreateTaskRequest $request)
     {
         return $this->taskService->createTask($request->name, $request->email, $request->description);
+    }
+
+    public function editTaskIndex(int $id)
+    {
+        $task = $this->taskService->getTask($id);
+        return view('edit', ['task' => $task]);
+    }
+
+    public function editTask(int $id, EditTaskRequest $request)
+    {
+        return $this->taskService->editTask($id, $request->only('id', 'name', 'email',
+            'description', 'is_completed'));
     }
 }
